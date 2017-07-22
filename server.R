@@ -3,6 +3,7 @@ library(recommenderlab)
 
 rated_jokes <- read.csv("jesterfinal151cols.csv", header = FALSE)
 jokes <- read.csv("jester_items.tsv", header = FALSE, sep = "\t", quote = "")
+rated_jokes[rated_jokes == 99] <- NA
 rated_jokes <- rated_jokes[, !names(rated_jokes) %in% c("V1", "V2", "V3", "V4", "V5", "V7", "V10", "V11", "V12", "V13", "V15", "V150")]
 jokes <- jokes[-c(1, 2, 3, 4, 6, 9, 10, 11, 12, 14),]
 colnames(rated_jokes) <- jokes$V1
